@@ -71,16 +71,15 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner input =new Scanner(System.in);
-        System.out.println("Enter number of students");
-        int numberOfStudents = input.nextInt();
-        int[] scores = new int[numberOfStudents];
-        int[] stats = {0, 0, 0, 0, 0};
-        System.out.println("Please insert grade of each student");
 
-        for(int j = 0; j < numberOfStudents; j++) {
-            int studentNumber = j+1;
-            System.out.println("Enter grade of student " + studentNumber);
-            scores[j] = input.nextInt();
+        System.out.println("Please insert grade of each student");
+        String inputGradeString = input.nextLine();
+        String[] gradesArr = inputGradeString.split(" ");
+        int[] scores = new int[gradesArr.length];
+        int[] stats = {0, 0, 0, 0, 0};
+
+        for(int j = 0; j < gradesArr.length; j++) {
+            scores[j] = Integer.parseInt(gradesArr[j]);
         }
 
         for(int x = 0; x< scores.length; x++) {    // counting number of students having grades in specified ranges
@@ -116,11 +115,5 @@ public class Main {
         System.out.println("\tI\t0-20\tI\t21-40\tI\t41-60\tI\t61-80\tI\t81-100\tI");
 
 
-
-//        System.out.println("the 100-81 is: " + stats[4]);
-//        System.out.println("the 80-61 is: " + stats[3]);
-//        System.out.println("the 60-41 is: " + stats[2]);
-//        System.out.println("the 40-21 is: " + stats[1]);
-//        System.out.println("the 20-0 is: " + stats[0]);
     }
 }
